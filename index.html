@@ -29,16 +29,18 @@ header {
 }
 
 
-header h1 {
-  color: var(--primary);
-  margin: 0;
-  font-size: 3rem;
-  letter-spacing: 2px;
-  text-shadow:
-    0 0 10px rgba(249,115,22,0.8),
-    0 0 20px rgba(249,115,22,0.6),
-    0 0 40px rgba(249,115,22,0.4);
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.9; }
+  70% { opacity: 0.75; }
 }
+
+header h1 {
+  animation:
+    glowPulse 2s ease-in-out infinite alternate,
+    flicker 3s infinite;
+}
+
 
 
   nav {
