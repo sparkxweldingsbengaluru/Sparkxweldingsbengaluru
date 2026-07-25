@@ -1,280 +1,177 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sparkx – Welding and Fabrications Bengaluru</title>
+  
+  <!-- Tailwind CSS via CDN for instant modern styling -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Local SEO Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Sparkx",
+    "url": "YOUR_WEBSITE_URL",
+    "telephone": "+918921413233",
+    "email": "laijukalluparambil@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Bengaluru",
+      "addressRegion": "Karnataka",
+      "addressCountry": "IN"
+    },
+    "areaServed": ["Sarjapura", "Bommasandra", "Electronic City", "Whitefield", "Marathahalli", "HSR Layout"],
+    "priceRange": "$$"
+  }
+  </script>
+
   <style>
-  :root {
-    --primary:#f97316;
-    --dark:#020617;
-    --bg:#0f172a;
-    --text:#e5e7eb;
-    --muted:#94a3b8;
-  }
-
-  body {
-    margin:0;
-    font-family: 'Segoe UI', system-ui, sans-serif;
-    background:var(--bg);
-    color:var(--text);
-    line-height:1.6;
-  }
-
-header {
-  background:linear-gradient(180deg, #020617, #020617cc),
-             url("welding-bg.png") center/cover no-repeat;
-  padding:60px 20px;
-  text-align:center;
-}
-
-
-@keyframes glowPulse {
-  0% {
-    text-shadow:
-      0 0 6px rgba(249,115,22,0.6),
-      0 0 14px rgba(249,115,22,0.4);
-  }
-  100% {
-    text-shadow:
-      0 0 18px rgba(249,115,22,1),
-      0 0 36px rgba(249,115,22,0.8),
-      0 0 60px rgba(249,115,22,0.6);
-  }
-}
-
-  @keyframes flicker {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.9; }
-  70% { opacity: 0.75; }
-}
-
-header h1 {
-  color: var(--primary);
-  margin: 0;
-  font-size: 3.2rem;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  animation:
-    glowPulse 2s ease-in-out infinite alternate,
-    flicker 3s infinite;
-}
-
-
-
-
-  nav {
-    margin-top:20px;
-    display:flex;
-    justify-content:center;
-    gap:24px;
-  }
-
-  nav a {
-    color:var(--text);
-    text-decoration:none;
-    font-weight:600;
-    position:relative;
-  }
-
-  nav a::after {
-    content:"";
-    position:absolute;
-    left:0;
-    bottom:-6px;
-    width:0;
-    height:2px;
-    background:var(--primary);
-    transition:.3s;
-  }
-
-  nav a:hover::after {
-    width:100%;
-  }
-
-section {
-  padding:60px 20px;
-  max-width:1100px;
-  margin:60px auto;
-
-  background:
-    linear-gradient(
-      rgba(2,6,23,0.92),
-      rgba(2,6,23,0.92)
-    ),
-    url("ChatGPT Image Jan 6, 2026, 02_55_44 PM.png") center / cover no-repeat;
-
-  border-radius:24px;
-}
-
-
-  h2 {
-    color:var(--primary);
-    font-size:2rem;
-    margin-bottom:10px;
-  }
-
-  .services {
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(240px,1fr));
-    gap:24px;
-    margin-top:30px;
-  }
-
-  .card {
-    background:var(--dark);
-    padding:30px;
-    border-radius:18px;
-    box-shadow:0 20px 30px rgba(0,0,0,.5);
-    transition:.3s;
-    border:1px solid #020617;
-  }
-
-  .card:hover {
-    transform:translateY(-6px);
-    border-color:var(--primary);
-  }
-
- .cta {
-  text-align:center;
-  padding:80px 20px;
-  margin:60px auto;
-  max-width:1100px;
-
-  background:
-    linear-gradient(
-      rgba(0,0,0,0.95),
-      rgba(2,6,23,0.95)
-    ),
-    url("ChatGPT Image Jan 6, 2026, 02_55_44 PM.png") center / cover no-repeat;
-
-  border-radius:28px;
-}
-
-
-  .cta a {
-    background:var(--primary);
-    color:#020617;
-    padding:15px 30px;
-    border-radius:40px;
-    font-weight:700;
-    margin:8px;
-    display:inline-block;
-    transition:.3s;
-  }
-
-  .cta a:hover {
-    background:#fb923c;
-    transform:scale(1.05);
-  }
-
-  footer {
-    background:#020617;
-    text-align:center;
-    padding:20px;
-    font-size:.9rem;
-    color:var(--muted);
-  }
-
-  .lang {
-    font-size:.9rem;
-    color:#cbd5f5;
-  }
-  .hidden {
-  display: none;
-}
-
-.whatsapp-float{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25D366;
-  padding:14px;
-  border-radius:50%;
-  box-shadow:0 8px 20px rgba(0,0,0,0.5);
-  z-index:1000;
-}
+    /* Custom subtle animations */
+    .glow-text {
+      text-shadow: 0 0 15px rgba(249, 115, 22, 0.5);
+    }
   </style>
 
-</head>
   <script>
-  function toggleRoofing() {
-    const g = document.getElementById("roofingGallery");
-    g.style.display = g.style.display === "block" ? "none" : "block";
-    g.scrollIntoView({ behavior: "smooth" });
-  }
-</script>
+    function toggleRoofing() {
+      const g = document.getElementById("roofingGallery");
+      // Toggle visibility using Tailwind's 'hidden' class
+      g.classList.toggle("hidden");
+      if (!g.classList.contains("hidden")) {
+        g.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+  </script>
+</head>
 
-<body>
+<body class="bg-slate-950 text-slate-200 font-sans antialiased selection:bg-orange-500 selection:text-slate-900">
 
-<header>
-  <h1>Sparkx</h1>
-  <p>Welding and Fabrications – Bengaluru</p>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
+  <!-- Sticky Navigation -->
+  <nav class="fixed top-0 w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800 transition-all">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="#" class="text-2xl font-black text-orange-500 tracking-widest uppercase">Sparkx</a>
+      <div class="flex gap-6 font-semibold text-sm md:text-base">
+        <a href="#about" class="hover:text-orange-400 transition-colors">About</a>
+        <a href="#services" class="hover:text-orange-400 transition-colors">Services</a>
+        <a href="#contact" class="hover:text-orange-400 transition-colors">Contact</a>
+      </div>
+    </div>
   </nav>
-</header>
 
-<section id="about">
-  <h2>About Sparkx</h2>
-  <p>We provide <strong>reliable, high‑quality welding and fabrication services</strong> across Bengaluru for residential, commercial, and industrial needs.</p>
-  <p class="lang">ನಾವು ಬೆಂಗಳೂರಿನಾದ್ಯಂತ ವಸತಿ, ವಾಣಿಜ್ಯ ಮತ್ತು ಕೈಗಾರಿಕಾ ಅಗತ್ಯಗಳಿಗಾಗಿ ವಿಶ್ವಾಸಾರ್ಹ, ಉತ್ತಮ ಗುಣಮಟ್ಟದ ವೆಲ್ಡಿಂಗ್ ಮತ್ತು ಫ್ಯಾಬ್ರಿಕೇಶನ್ ಸೇವೆಗಳನ್ನು ಒದಗಿಸುತ್ತೇವೆ.</p>
-</section>
+  <!-- Hero Section -->
+  <header class="relative pt-40 pb-32 px-4 text-center bg-slate-900 bg-[url('welding-bg.png')] bg-cover bg-center bg-no-repeat bg-blend-overlay border-b border-slate-800">
+    <div class="max-w-4xl mx-auto relative z-10">
+      <h1 class="text-5xl md:text-7xl font-black text-orange-500 uppercase tracking-widest glow-text mb-4">Sparkx</h1>
+      <p class="text-xl md:text-2xl text-slate-300 font-light">Welding and Fabrications – Bengaluru</p>
+    </div>
+  </header>
 
-<section id="services">
-  <h2>Our Services</h2>
-  <div class="services">
-   <div class="card" onclick="toggleRoofing()">
-  Roofing<br><span class="lang">ಛಾವಣಿ</span>
-</div>
+  <!-- About Section -->
+  <section id="about" class="max-w-5xl mx-auto px-4 py-20 mt-10">
+    <div class="bg-slate-900/50 border border-slate-800 rounded-3xl p-8 md:p-12 text-center relative overflow-hidden shadow-2xl backdrop-blur-sm">
+      <!-- Trust Badge -->
+      <div class="absolute top-0 right-0 bg-orange-500 text-slate-950 text-xs font-bold px-4 py-2 rounded-bl-xl uppercase tracking-wider">
+        Udyam Registered
+      </div>
+      
+      <h2 class="text-3xl font-bold text-orange-500 mb-6">About Sparkx</h2>
+      <p class="text-lg text-slate-300 max-w-2xl mx-auto mb-4">
+        We provide <strong class="text-white">reliable, high‑quality welding and fabrication services</strong> across Bengaluru for residential, commercial, and industrial needs.
+      </p>
+      <p class="text-sm text-slate-400">
+        ನಾವು ಬೆಂಗಳೂರಿನಾದ್ಯಂತ ವಸತಿ, ವಾಣಿಜ್ಯ ಮತ್ತು ಕೈಗಾರಿಕಾ ಅಗತ್ಯಗಳಿಗಾಗಿ ವಿಶ್ವಾಸಾರ್ಹ, ಉತ್ತಮ ಗುಣಮಟ್ಟದ ವೆಲ್ಡಿಂಗ್ ಮತ್ತು ಫ್ಯಾಬ್ರಿಕೇಶನ್ ಸೇವೆಗಳನ್ನು ಒದಗಿಸುತ್ತೇವೆ.
+      </p>
+    </div>
+  </section>
 
-       <div class="card">Gates, Grills & Railings<br><span class="lang">ಗೇಟ್, ಗ್ರಿಲ್, ರೇಲಿಂಗ್</span></div>
-    <div class="card">Custom Welding<br><span class="lang">ಕಸ್ಟಮ್ ವೆಲ್ಡಿಂಗ್</span></div>
-    
-  </div>
-</section>
+  <!-- Services Section -->
+  <section id="services" class="max-w-6xl mx-auto px-4 py-10">
+    <h2 class="text-3xl font-bold text-orange-500 text-center mb-10">Our Services</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+      <!-- Service Card 1 -->
+      <div onclick="toggleRoofing()" class="group cursor-pointer bg-slate-900 border border-slate-800 hover:border-orange-500 rounded-2xl p-8 text-center transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_30px_-10px_rgba(249,115,22,0.3)]">
+        <h3 class="text-xl font-bold text-white mb-2">Roofing</h3>
+        <p class="text-slate-400 text-sm">ಛಾವಣಿ</p>
+        <p class="text-orange-500 text-xs mt-4 opacity-0 group-hover:opacity-100 transition-opacity">Click to view gallery &rarr;</p>
+      </div>
 
+      <!-- Service Card 2 -->
+      <div class="group bg-slate-900 border border-slate-800 hover:border-orange-500 rounded-2xl p-8 text-center transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_30px_-10px_rgba(249,115,22,0.3)]">
+        <h3 class="text-xl font-bold text-white mb-2">Gates, Grills & Railings</h3>
+        <p class="text-slate-400 text-sm">ಗೇಟ್, ಗ್ರಿಲ್, ರೇಲಿಂಗ್</p>
+      </div>
 
-  <section id="roofingGallery" class="hidden">
-  <h2>Roofing Works</h2>
+      <!-- Service Card 3 -->
+      <div class="group bg-slate-900 border border-slate-800 hover:border-orange-500 rounded-2xl p-8 text-center transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_30px_-10px_rgba(249,115,22,0.3)]">
+        <h3 class="text-xl font-bold text-white mb-2">Custom Welding</h3>
+        <p class="text-slate-400 text-sm">ಕಸ್ಟಮ್ ವೆಲ್ಡಿಂಗ್</p>
+      </div>
 
-  <div class="gallery">
-    <img src="IMG-20260106-WA0027.jpg" alt="Roofing work 1">
-    <img src="IMG-20260106-WA0029.jpg" alt="Roofing work 2">
-    <img src="roof1.jpg" alt="Roofing work 3">
-    <img src="roof2.jpg" alt="Roofing work 4">
-    <img src="roof3.jpg" alt="Roofing work 5">
-<img src="roof4.jpg" alt="Roofing work 6">
-<img src="roof5.jpg" alt="Roofing work 7">
-<img src="roof7.jpg" alt="Roofing work 9">
-  </div>
-</section>
+    </div>
+  </section>
 
-  <section>
-<h2>Service Areas</h2>
-<p>
-Sparkx provides welding and fabrication services across Bengaluru including
-Sarjapura, Electronic City, Whitefield, Marathahalli, HSR Layout and nearby areas.
-</p>
-</section>
-<section class="cta" id="contact">
-  <h2>Contact Sparkx</h2>
-  <p>Call or WhatsApp us for quick service in Bengaluru</p>
-  <a href="tel:+918921413233">📞 Call Now</a>
-  <a href="https://wa.me/918921413233">💬 WhatsApp</a>
-  <a href="mailto:laijukalluparambil@gmail.com">✉️ Email Us</a>
-  <p class="lang">ಇಂದೇ ಕರೆ ಮಾಡಿ ಅಥವಾ ವಾಟ್ಸಪ್ ಮಾಡಿ</p>
-</section>
+  <!-- Hidden Roofing Gallery -->
+  <section id="roofingGallery" class="hidden max-w-6xl mx-auto px-4 py-10">
+    <h2 class="text-2xl font-bold text-white mb-6 border-b border-slate-800 pb-2">Roofing Works Gallery</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <!-- Use object-cover to make all images uniform in size -->
+      <img src="IMG-20260106-WA0027.jpg" alt="Roofing work 1" class="w-full h-48 object-cover rounded-xl border border-slate-800 hover:border-orange-500 transition-colors">
+      <img src="IMG-20260106-WA0029.jpg" alt="Roofing work 2" class="w-full h-48 object-cover rounded-xl border border-slate-800 hover:border-orange-500 transition-colors">
+      <img src="roof1.jpg" alt="Roofing work 3" class="w-full h-48 object-cover rounded-xl border border-slate-800 hover:border-orange-500 transition-colors">
+      <img src="roof2.jpg" alt="Roofing work 4" class="w-full h-48 object-cover rounded-xl border border-slate-800 hover:border-orange-500 transition-colors">
+      <img src="roof3.jpg" alt="Roofing work 5" class="w-full h-48 object-cover rounded-xl border border-slate-800 hover:border-orange-500 transition-colors">
+      <img src="roof4.jpg" alt="Roofing work 6" class="w-full h-48 object-cover rounded-xl border border-slate-800 hover:border-orange-500 transition-colors">
+      <img src="roof5.jpg" alt="Roofing work 7" class="w-full h-48 object-cover rounded-xl border border-slate-800 hover:border-orange-500 transition-colors">
+      <img src="roof7.jpg" alt="Roofing work 9" class="w-full h-48 object-cover rounded-xl border border-slate-800 hover:border-orange-500 transition-colors">
+    </div>
+  </section>
 
-<footer>
-  © 2026 Sparkx Welding & Fabrication | Bengaluru
-</footer>
+  <!-- Service Areas -->
+  <section class="max-w-4xl mx-auto px-4 py-10 text-center">
+    <h2 class="text-2xl font-bold text-orange-500 mb-4">Service Areas</h2>
+    <p class="text-slate-300 leading-relaxed">
+      Sparkx provides welding and fabrication services across Bengaluru including <br>
+      <span class="text-white font-medium">Sarjapura, Electronic City, Whitefield, Marathahalli, HSR Layout</span> and nearby areas.
+    </p>
+  </section>
 
-<a href="https://wa.me/918921413233" class="whatsapp-float">
-<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="28">
-</a>
+  <!-- CTA / Contact Section -->
+  <section id="contact" class="max-w-5xl mx-auto px-4 py-20 mb-20">
+    <div class="bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-10 text-center shadow-2xl relative overflow-hidden">
+      <!-- Decorative background glow -->
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 relative z-10">Contact Sparkx</h2>
+      <p class="text-slate-300 mb-8 relative z-10">Call or WhatsApp us for quick service in Bengaluru</p>
+      
+      <div class="flex flex-wrap justify-center gap-4 relative z-10">
+        <a href="tel:+918921413233" class="bg-orange-500 hover:bg-orange-400 text-slate-950 font-bold py-3 px-8 rounded-full transition-transform hover:scale-105 shadow-lg">
+          📞 Call Now
+        </a>
+        <a href="https://wa.me/918921413233" class="bg-green-500 hover:bg-green-400 text-slate-950 font-bold py-3 px-8 rounded-full transition-transform hover:scale-105 shadow-lg">
+          💬 WhatsApp
+        </a>
+        <a href="mailto:laijukalluparambil@gmail.com" class="bg-slate-800 hover:bg-slate-700 text-white font-bold py-3 px-8 rounded-full border border-slate-700 transition-transform hover:scale-105 shadow-lg">
+          ✉️ Email Us
+        </a>
+      </div>
+      <p class="text-sm text-slate-400 mt-6 relative z-10">ಇಂದೇ ಕರೆ ಮಾಡಿ ಅಥವಾ ವಾಟ್ಸಪ್ ಮಾಡಿ</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-slate-950 border-t border-slate-800 text-center py-8 text-slate-500 text-sm">
+    <p>© 2026 Sparkx Welding & Fabrication | Bengaluru</p>
+  </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/918921413233" class="fixed bottom-6 right-6 bg-[#25D366] p-4 rounded-full shadow-[0_8px_20px_rgba(37,211,102,0.4)] hover:scale-110 transition-transform z-50">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="32" alt="WhatsApp">
+  </a>
   
 </body>
 </html>
